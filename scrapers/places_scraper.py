@@ -78,7 +78,6 @@ class PlacesScraper(Scraper):
         places_elements = self.driver.find_elements(
             by=By.CLASS_NAME, value="lugar-link"
         )
-        print([f"{p.text} {p.get_attribute('href')}" for p in places_elements])
         places_elements = [place for place in places_elements if place.text]
         return list(toolz.unique(places_elements, key=lambda x: x.text))
 
